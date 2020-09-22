@@ -3,6 +3,7 @@ from sly import Lexer
 
 class CalcLexer(Lexer):
     # Set of token names. This is always required 
+
     tokens = { ID, NUMBER, PLUS, MINUS, TIMES,
                DIVIDE, ASSIGN, AND, LT, LE, GT, GE,
                IF, WHILE, ELSE, RETURN, CLASS, PRINT, INT, METH }
@@ -23,6 +24,7 @@ class CalcLexer(Lexer):
     ID['class'] = CLASS
     ID['int'] = INT
     ID['public'] = METH
+    ID['private'] = METH
     NUMBER  = r'\d+'
     PLUS    = r'\+'
     MINUS   = r'-'
@@ -34,7 +36,6 @@ class CalcLexer(Lexer):
     LT = r'<'
     GE = r'>='
     GT = r'>'
-    
 
 if __name__ == '__main__':
     data = input('lex > ') 
