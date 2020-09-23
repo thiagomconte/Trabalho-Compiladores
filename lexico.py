@@ -7,7 +7,7 @@ class CalcLexer(Lexer):
     tokens = { ID, NUM, PLUS, MINUS, TIMES,
                DIVIDE, EQUAL, AND, LESS,
                KEYWORD, SCOLON, COLON, LPAREN, LBRACK, RBRACK,
-               RPAREN, LBRACE, RBRACE, DOT, NOT, WRITE }
+               RPAREN, LBRACE, RBRACE, DOT, NOT }
     
     
     # String containing ignored characters between tokens
@@ -15,7 +15,7 @@ class CalcLexer(Lexer):
     ignore_newline = r'\n+'
     
     # Regular expression rules for tokens
-    ID['System.out.println'] = KEYWORD
+
     ID = r'[a-zA-Z_][a-zA-Z0-9_]*'
     ID['if'] = KEYWORD
     ID['while'] = KEYWORD
@@ -59,6 +59,7 @@ class CalcLexer(Lexer):
     def ignore_newline(self, t):
         self.lineno += len(t.value)
     
+    #DETECTA O CARACTERE ILEGAL
     def error(self, t):
         print("Linha %d - Caractere ilegal : %s" % (t.lineno, t.value[0]))
         self.index += 1
